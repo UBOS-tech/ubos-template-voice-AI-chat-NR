@@ -1,1 +1,1174 @@
-[]
+[
+    {
+        "id": "250ad104eb0fb65c",
+        "type": "tab",
+        "label": "App Setting",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "09d47144111f19ea",
+        "type": "tab",
+        "label": "Bot",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "49a260f6b681234c",
+        "type": "tab",
+        "label": "Links",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d78c85d423048125",
+        "type": "subflow",
+        "name": "Subflow 1",
+        "info": "",
+        "in": [],
+        "out": []
+    },
+    {
+        "id": "f168eeb2f9b6dc07",
+        "type": "mongodb",
+        "hostname": "${VOICEAICHAT-MONGO-HOST-NAME}",
+        "topology": "direct",
+        "connectOptions": "authSource=admin",
+        "port": "27017",
+        "db": "${VOICEAICHAT-MONGO-DB-NAME}",
+        "name": ""
+    },
+    {
+        "id": "7352b6a79cebaa33",
+        "type": "telegram bot",
+        "botname": "{global.get('botCredential').botName}",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "61cb8179f42efc8a",
+        "type": "telegram bot",
+        "botname": "Botimage",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "b04948eca0342990",
+        "type": "http in",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "url": "/css",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 40,
+        "wires": [
+            [
+                "485aab5681956351"
+            ]
+        ]
+    },
+    {
+        "id": "485aab5681956351",
+        "type": "template",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "css",
+        "syntax": "mustache",
+        "template": ".baseContainer {\n    padding: 0 !important;\n    margin: 0 !important;\n    top: 0 !important;\n    left: 0 !important;\n    right: 0 !important;\n    bottom: 0 !important;\n    height: 100vh !important;\n    width: 100vw !important;\n}\n\n.baseContainer>div>div>div>div>div>div>div>div>div>div {\n    height: 100vh !important;\n}\n\n.leftSide {\n    padding: 0 !important;\n    margin: 0 !important;\n    top: 0 !important;\n    left: 0 !important;\n    right: 0 !important;\n    bottom: 0 !important;\n    height: 100vh !important;\n}\n\n.leftSide>div>div>div>div>div>div {\n    background: rgb(64,164,164) !important;\n    background: linear-gradient(0deg, rgba(64,164,164,1) 0%, rgba(229,245,245,1) 40%) !important;\n}\n\n.telegramLogo {\n    opacity: 0.7 !important;\n}\n\n.titleAI span {\n    font-size: 2rem !important;\n}\n\n.text2 span {\n    font-size: 22px !important;\n}\n\n.buttonStart span {\n    color: white !important;\n}\n\n.buttonStart>div>div>div>div>div button {\n    background: #40aeae !important;\n    transition: 0.3s !important;\n}\n\n.buttonStart>div>div>div>div>div button:hover,\n.buttonStart>div>div>div>div>div button:active {\n    background: #308282 !important;\n}\n\n.robotImg {\n    animation: robotImg 34s linear 0s infinite normal none;\n    transform-origin: 50% 50%;\n}\n\n@keyframes robotImg {\n    0%,\n    100% {\n        transform: translateX(0%);\n        transform: translateY(0%);\n    }\n\n    15% {\n        transform: translateX(-30px) rotate(6deg);\n        transform: translateY(-50px) rotate(4deg);\n    }\n\n    30% {\n        transform: translateX(15px) rotate(-6deg);\n        transform: translateY(25px) rotate(-8deg);\n    }\n\n    45% {\n        transform: translateX(-15px) rotate(-3.6deg);\n        transform: translateY(-15px) rotate(-3.6deg);\n    }\n\n    60% {\n        transform: translateX(9px) rotate(-2.4deg);\n        transform: translateY(15px) rotate(3.4deg);\n    }\n\n    75% {\n        transform: translateX(-6px) rotate(1.2deg);\n        transform: translateY(-10px) rotate(4.2deg);\n    }\n}\n",
+        "output": "str",
+        "x": 220,
+        "y": 40,
+        "wires": [
+            [
+                "c6119471c519061e"
+            ]
+        ]
+    },
+    {
+        "id": "c6119471c519061e",
+        "type": "http response",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "text/css"
+        },
+        "x": 350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "8ecbfc06bc9f14e6",
+        "type": "http in",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "url": "/saveCredentials",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "546fccd91bd0c1fe",
+                "70fa563524bce094"
+            ]
+        ]
+    },
+    {
+        "id": "546fccd91bd0c1fe",
+        "type": "http response",
+        "z": "250ad104eb0fb65c",
+        "name": "saveCredentialResponse",
+        "statusCode": "",
+        "headers": {},
+        "x": 370,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "56b615fdae6f5b7a",
+        "type": "http in",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "url": "/getCredentials",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "7b18f9005dfed6d8"
+            ]
+        ]
+    },
+    {
+        "id": "7b18f9005dfed6d8",
+        "type": "function",
+        "z": "250ad104eb0fb65c",
+        "name": "sortCredentials",
+        "func": "msg.collection = 'credentials';\nmsg.payload = {};\nmsg.sort = { '_id': -1 };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 380,
+        "wires": [
+            [
+                "4f4297eea101504b"
+            ]
+        ]
+    },
+    {
+        "id": "2947b0da37b1b5bf",
+        "type": "http response",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "4794739f0ca7f4d4",
+        "type": "function",
+        "z": "250ad104eb0fb65c",
+        "name": "getLastCredential",
+        "func": "msg.payload = msg.payload[0];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 380,
+        "wires": [
+            [
+                "2947b0da37b1b5bf"
+            ]
+        ]
+    },
+    {
+        "id": "22ca0fc049e4fb3a",
+        "type": "complete",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "scope": [
+            "546fccd91bd0c1fe"
+        ],
+        "uncaught": false,
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "57ec30d9da3742eb"
+            ]
+        ]
+    },
+    {
+        "id": "9e2c5ec10d494689",
+        "type": "inject",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "57ec30d9da3742eb"
+            ]
+        ]
+    },
+    {
+        "id": "57ec30d9da3742eb",
+        "type": "function",
+        "z": "250ad104eb0fb65c",
+        "name": "getLastCredential",
+        "func": "msg.collection = 'credentials';\nmsg.payload = {};\nmsg.sort = { '_id': -1 };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "b35713f8d22c2279"
+            ]
+        ]
+    },
+    {
+        "id": "f3f0cea32f89e7ca",
+        "type": "function",
+        "z": "250ad104eb0fb65c",
+        "name": "saveCurentCredentialToGlobal",
+        "func": "const data = msg.payload[0];\nconst defaultVoiceId = 'pqHfZKP75CvOlQylNhV4';\n\nlet process_env = {\n    \"_id\": data._id,\n    \"botName\": data.botName ? data.botName.trim() : '',\n    \"botToken\": data.botToken ? data.botToken.trim() : '',\n    \"openAIKey\": data.openAIKey ? data.openAIKey.trim() : '',\n    \"elevenlabsKey\": data.elevenlabsKey ? data.elevenlabsKey.trim() : '',\n    \"elevenlabsVoice\": data.elevenlabsVoice ? data.elevenlabsVoice : defaultVoiceId,\n    \"prompt\": data.prompt ? data.prompt.trim() : '',\n    \"setGreetings\": data.setGreetings ? data.setGreetings.trim() : '',\n}\n\nglobal.set(\"botCredential\", process_env);\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b35713f8d22c2279",
+        "type": "link call",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "links": [
+            "2ea4d611b4476b64"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 470,
+        "y": 140,
+        "wires": [
+            [
+                "f3f0cea32f89e7ca"
+            ]
+        ]
+    },
+    {
+        "id": "4f4297eea101504b",
+        "type": "link call",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "links": [
+            "2ea4d611b4476b64"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 450,
+        "y": 380,
+        "wires": [
+            [
+                "4794739f0ca7f4d4"
+            ]
+        ]
+    },
+    {
+        "id": "54d3949016ccd055",
+        "type": "link call",
+        "z": "250ad104eb0fb65c",
+        "name": "",
+        "links": [
+            "850f26bd11c45c81"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 480,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70fa563524bce094",
+        "type": "function",
+        "z": "250ad104eb0fb65c",
+        "name": "setCollection",
+        "func": "msg.collection = 'credentials';\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "54d3949016ccd055"
+            ]
+        ]
+    },
+    {
+        "id": "b8e75cf9dba13f4b",
+        "type": "telegram receiver",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "bot": "7352b6a79cebaa33",
+        "saveDataDir": "",
+        "filterCommands": true,
+        "x": 100,
+        "y": 380,
+        "wires": [
+            [
+                "ad7224737b66e938"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9e68a937d6444a67",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "text or voice",
+        "func": "switch (msg.userData.communicationMethod) {\n    case 'TEXT':\n        msg.payload = {\n            type: 'message',\n            content: msg.payload.choices[0].message.content,\n            chatId: msg.userData.chatId\n        }\n\n        return [msg, null];\n    case 'VOICE':\n\n        return [null, msg];\n    default:\n\n        return [msg, null];\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 420,
+        "wires": [
+            [
+                "f5e43393d775354d"
+            ],
+            [
+                "fe1a4b570576db82"
+            ]
+        ]
+    },
+    {
+        "id": "f5e43393d775354d",
+        "type": "telegram sender",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "bot": "7352b6a79cebaa33",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1280,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "23c8d4fcb9c6d21b",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "chooseMethod or questionToAI",
+        "func": "msg.userData = {\n    ...msg.payload[0],\n    chatId: msg.telegram.chatId,\n}\n\nif (msg.userData.communicationMethod == null ||\n    msg.userData.communicationMethod == undefined) {\n\n    const opts = {\n        reply_markup: JSON.stringify({\n            \"inline_keyboard\": [[\n                { \"text\": \"⌨️ Text\", \"callback_data\": \"/text\" },\n                { \"text\": \"🎤 Voice\", \"callback_data\": \"/voice\" }\n            ]]\n        })\n    };\n\n    msg.payload = {\n        type: 'message',\n        content: 'Please, choose the method of communication',\n        chatId: msg.telegram.chatId,\n        options: opts,\n    }\n\n    return [msg, null];\n}\n\nconst botCredential = global.get('botCredential');\n\nmsg.OPENAI_API_KEY = botCredential.openAIKey;\nmsg.prompt = botCredential.prompt;\nmsg.messages = [\n    { \"role\": \"system\", \"content\": botCredential.prompt },\n    { \"role\": \"user\", \"content\": msg.telegram.content }\n];\n\nreturn [null, msg];\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 380,
+        "wires": [
+            [
+                "f5e43393d775354d"
+            ],
+            [
+                "8ae8988606843ece"
+            ]
+        ]
+    },
+    {
+        "id": "d90dd569ba3444d9",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "firstMessage",
+        "func": "msg.fromDB = msg.payload;\n\nconst startMessage = global.get('botCredential').setGreetings;\nconst fistMessage = `${startMessage}\n\nHow do you want to communicate?`;\nconst opts = {\n    reply_markup: JSON.stringify({\n        \"inline_keyboard\": [[\n            { \"text\": \"⌨️ Text\", \"callback_data\": \"/text\" },\n            { \"text\": \"🎤 Voice\", \"callback_data\": \"/voice\" }\n        ]]\n    })\n};\n\nmsg.payload = {\n    type: 'message',\n    content: fistMessage,\n    chatId: msg.telegram.chatId,\n    options: opts,\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 100,
+        "wires": [
+            [
+                "549ea3bd9c875503",
+                "4cb04f77faef60cd"
+            ]
+        ]
+    },
+    {
+        "id": "549ea3bd9c875503",
+        "type": "telegram sender",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "bot": "7352b6a79cebaa33",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 700,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "38dce3355625bfd2",
+        "type": "telegram command",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "command": "/start",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "7352b6a79cebaa33",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 70,
+        "y": 100,
+        "wires": [
+            [
+                "3ff58d8dddf5ab7a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bcc6956983949cd9",
+        "type": "inject",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 500,
+        "y": 440,
+        "wires": [
+            [
+                "23c8d4fcb9c6d21b"
+            ]
+        ]
+    },
+    {
+        "id": "8ba8c8dae228cdd8",
+        "type": "telegram receiver",
+        "z": "09d47144111f19ea",
+        "d": true,
+        "name": "",
+        "bot": "7352b6a79cebaa33",
+        "saveDataDir": "",
+        "filterCommands": true,
+        "x": 101,
+        "y": 1168.9999961853027,
+        "wires": [
+            [
+                "2711d477b4d98ec8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2711d477b4d98ec8",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "firstTouch",
+        "func": "if (msg.payload.type === 'message') {\n    return [msg, null];\n} else {\n    return [null, msg];\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 281,
+        "y": 1168.9999961853027,
+        "wires": [
+            [
+                "eb99e97110de186e"
+            ],
+            [
+                "2b6863960daa7e88"
+            ]
+        ]
+    },
+    {
+        "id": "2b6863960daa7e88",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "error",
+        "func": "msg.old = msg.payload;\nmsg.payload = {\n    type: 'message',\n    content: 'Error: You can sand only text message',\n    chatId: msg.old.chatId,\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 431,
+        "y": 1248.9999961853027,
+        "wires": [
+            [
+                "f426e2f13c91d502"
+            ]
+        ]
+    },
+    {
+        "id": "eb99e97110de186e",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "authorizationToAI",
+        "func": "msg.old = msg.payload;\nmsg.url = 'https://api.openai.com/v1/images/generations';\nmsg.method = 'POST';\n\nmsg.headers = {\n    'Content-Type': 'application/json',\n    'Authorization': 'Bearer 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',\n}\n\nmsg.payload = {\n    prompt: msg.old.content,\n    n: 1,\n    size: '1024x1024'\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 471,
+        "y": 1168.9999961853027,
+        "wires": [
+            [
+                "e39c07f0a1d4a61d"
+            ]
+        ]
+    },
+    {
+        "id": "f426e2f13c91d502",
+        "type": "telegram sender",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "bot": "7352b6a79cebaa33",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 681,
+        "y": 1248.9999961853027,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e39c07f0a1d4a61d",
+        "type": "http request",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 671,
+        "y": 1168.9999961853027,
+        "wires": [
+            [
+                "c93ca48ac47e6e9b"
+            ]
+        ]
+    },
+    {
+        "id": "c93ca48ac47e6e9b",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "checkStatusCode",
+        "func": "if (msg.statusCode == 200) {\n    msg.payload.type = 'message';\n    msg.payload.content = `<a href=\"${msg.payload.data[0].url}\">Your image is right here 🥳</a>`\n\n    msg.payload.chatId = `${msg.old.chatId}`;\n    msg.payload.options = { parse_mode: 'HTML'};\n} else {\n    msg.payload.type = 'message';\n    msg.payload.content = `${msg.statusCode}: ${msg.payload.error.message}`\n\n    msg.payload.chatId = `${msg.old.chatId}`;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 871,
+        "y": 1168.9999961853027,
+        "wires": [
+            [
+                "e4c8a9e51b890c25"
+            ]
+        ]
+    },
+    {
+        "id": "e4c8a9e51b890c25",
+        "type": "telegram sender",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "bot": "7352b6a79cebaa33",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1081,
+        "y": 1168.9999961853027,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "05ef7870dc3a0c82",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "switchCommunicationMethod",
+        "func": "msg.telegram = msg.payload;\nmsg.communicationMethod = null;\n\nlet content = 'The communication method is not selected!';\n\nswitch (msg.payload.content || msg.originalMessage.text) {\n    case '/text': {\n        msg.communicationMethod = 'TEXT';\n        content = '⌨️ Switched to text mode';\n        break;\n    }\n    case '/voice': {\n        msg.communicationMethod = 'VOICE';\n        content = '🎤 Switched to voice mode';\n        break;\n    }\n}\n\nmsg.payload = {\n    type: 'message',\n    content: content,\n    chatId: msg.telegram.chatId,\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "6f0ac191e6466ffa",
+                "1da6bfa5582989cc"
+            ]
+        ]
+    },
+    {
+        "id": "6f0ac191e6466ffa",
+        "type": "telegram sender",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "bot": "7352b6a79cebaa33",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe1a4b570576db82",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "generateVoice",
+        "func": "const voice_id = global.get('botCredential').elevenlabsVoice;\nconst content = msg.payload.choices[0].message.content;\nconst key = global.get('botCredential').elevenlabsKey;\n\nmsg.url = `https://api.elevenlabs.io/v1/text-to-speech/${voice_id}`;\nmsg.method = 'POST';\nmsg.headers = {\n    'Content-Type': 'application/json',\n    'xi-api-key': key\n};\n\nmsg.payload = {\n    text: content,\n    voice_settings: {\n        \"similarity_boost\": 1,\n        \"stability\": 1,\n        \"use_speaker_boost\": true\n    }\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 420,
+        "wires": [
+            [
+                "11868ca608e2d672"
+            ]
+        ]
+    },
+    {
+        "id": "58eeb34dc6f2c814",
+        "type": "telegram sender",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "bot": "7352b6a79cebaa33",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1780,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "11868ca608e2d672",
+        "type": "http request",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "method": "use",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1450,
+        "y": 420,
+        "wires": [
+            [
+                "30ab0ad3641b3a2e"
+            ]
+        ]
+    },
+    {
+        "id": "30ab0ad3641b3a2e",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "statusCode",
+        "func": "if (msg.statusCode == 200) {\n    msg.payload = {\n        type: 'voice',\n        content: msg.payload,\n        chatId: msg.userData.chatId\n    }\n\n    return msg;\n} else {\n    msg.payload = {\n        type: 'message',\n        content: \"ERROR. Sorry, something went wrong 😞\",\n        chatId: msg.userData.chatId\n    }\n\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1610,
+        "y": 420,
+        "wires": [
+            [
+                "58eeb34dc6f2c814"
+            ]
+        ]
+    },
+    {
+        "id": "ad7224737b66e938",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "getUserLastData",
+        "func": "msg.collection = 'users';\nmsg.telegram = msg.payload;\n\nmsg.payload = {\n    userId: msg.telegram.chatId,\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "8a051ddad8761d2a"
+            ]
+        ]
+    },
+    {
+        "id": "1da6bfa5582989cc",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "setCommunicationMethodToMongo",
+        "func": "const userId = msg.telegram.chatId;\n\nmsg.collection = 'users';\nmsg.query = {\n    userId\n}\nmsg.payload = {\n    $set: {\n        communicationMethod: msg.communicationMethod\n    }\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 240,
+        "wires": [
+            [
+                "f3b464b30f07b7fe"
+            ]
+        ]
+    },
+    {
+        "id": "4cb04f77faef60cd",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "setUserToMongo",
+        "func": "if (msg.fromDB.length === 0) {\n    msg.collection = 'users';\n    msg.payload = {\n        userId: msg.telegram.chatId,\n    }\n\n    return msg;\n} \n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 100,
+        "wires": [
+            [
+                "4d3a046ecbdcb31f"
+            ]
+        ]
+    },
+    {
+        "id": "fa1dc6f947143470",
+        "type": "telegram event",
+        "z": "09d47144111f19ea",
+        "name": "eventListener",
+        "bot": "7352b6a79cebaa33",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "05ef7870dc3a0c82"
+            ]
+        ]
+    },
+    {
+        "id": "3ff58d8dddf5ab7a",
+        "type": "function",
+        "z": "09d47144111f19ea",
+        "name": "checkUserExist",
+        "func": "msg.collection = 'users';\nmsg.telegram = msg.payload;\n\nmsg.payload = {\n    userId: msg.telegram.chatId,\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "2bf89e5f26ed0589"
+            ]
+        ]
+    },
+    {
+        "id": "2bf89e5f26ed0589",
+        "type": "link call",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "links": [
+            "2ea4d611b4476b64"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 370,
+        "y": 100,
+        "wires": [
+            [
+                "d90dd569ba3444d9"
+            ]
+        ]
+    },
+    {
+        "id": "4d3a046ecbdcb31f",
+        "type": "link call",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "links": [
+            "850f26bd11c45c81"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 880,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f3b464b30f07b7fe",
+        "type": "link call",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "links": [
+            "4858d251cc2afe5c"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 880,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a051ddad8761d2a",
+        "type": "link call",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "links": [
+            "2ea4d611b4476b64"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 450,
+        "y": 380,
+        "wires": [
+            [
+                "23c8d4fcb9c6d21b"
+            ]
+        ]
+    },
+    {
+        "id": "55bf8f1b3edd3cf6",
+        "type": "telegram command",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "command": "/text",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "7352b6a79cebaa33",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 70,
+        "y": 240,
+        "wires": [
+            [
+                "05ef7870dc3a0c82"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b8a8ee23e636dc07",
+        "type": "telegram command",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "command": "/voice",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "7352b6a79cebaa33",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 70,
+        "y": 300,
+        "wires": [
+            [
+                "05ef7870dc3a0c82"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8ae8988606843ece",
+        "type": "openai-ubos",
+        "z": "09d47144111f19ea",
+        "name": "",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.5,
+        "max_tokens": 60,
+        "prompt": "",
+        "frequency_penalty": 0,
+        "presence_penalty": 0,
+        "top_p": 1,
+        "stop": {
+            "type": "json",
+            "value": "[]"
+        },
+        "OPENAI_API_KEY": "",
+        "x": 920,
+        "y": 420,
+        "wires": [
+            [
+                "9e68a937d6444a67"
+            ]
+        ]
+    },
+    {
+        "id": "2ea4d611b4476b64",
+        "type": "link in",
+        "z": "49a260f6b681234c",
+        "name": "findDB",
+        "links": [],
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "ccfe58d6c0c35bad"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "2e067bd1492a1a46",
+        "type": "link out",
+        "z": "49a260f6b681234c",
+        "name": "link out 3",
+        "mode": "return",
+        "links": [],
+        "x": 415,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ccfe58d6c0c35bad",
+        "type": "mongodb in",
+        "z": "49a260f6b681234c",
+        "mongodb": "f168eeb2f9b6dc07",
+        "name": "MongoDB",
+        "collection": "",
+        "operation": "find",
+        "x": 290,
+        "y": 60,
+        "wires": [
+            [
+                "2e067bd1492a1a46"
+            ]
+        ]
+    },
+    {
+        "id": "850f26bd11c45c81",
+        "type": "link in",
+        "z": "49a260f6b681234c",
+        "name": "insertDB",
+        "links": [],
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "ad76acd06af34364",
+                "7a3aef4bde311dfa"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "7a3aef4bde311dfa",
+        "type": "link out",
+        "z": "49a260f6b681234c",
+        "name": "link out 4",
+        "mode": "return",
+        "links": [],
+        "x": 235,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ad76acd06af34364",
+        "type": "mongodb out",
+        "z": "49a260f6b681234c",
+        "mongodb": "f168eeb2f9b6dc07",
+        "name": "MongoDB",
+        "collection": "",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 290,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "33bdd240470ffc2b",
+        "type": "mongodb out",
+        "z": "49a260f6b681234c",
+        "mongodb": "f168eeb2f9b6dc07",
+        "name": "MongoDB",
+        "collection": "",
+        "payonly": true,
+        "upsert": false,
+        "multi": true,
+        "operation": "update",
+        "x": 290,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4858d251cc2afe5c",
+        "type": "link in",
+        "z": "49a260f6b681234c",
+        "name": "updateDB",
+        "links": [],
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "33bdd240470ffc2b",
+                "ba42b3f1e81a19d9"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "ba42b3f1e81a19d9",
+        "type": "link out",
+        "z": "49a260f6b681234c",
+        "name": "link out 5",
+        "mode": "return",
+        "links": [],
+        "x": 235,
+        "y": 260,
+        "wires": []
+    }
+]

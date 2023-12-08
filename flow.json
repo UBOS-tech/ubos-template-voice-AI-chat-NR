@@ -221,7 +221,7 @@
         "type": "function",
         "z": "250ad104eb0fb65c",
         "name": "getLastCredential",
-        "func": "msg.payload = msg.payload[0];\n\nreturn msg;",
+        "func": "\nif (msg.payload.length > 0) {\n    msg.payload = msg.payload[0];\n} else {\n    msg.payload = {\n        \"_id\": '',\n        \"botName\": '',\n        \"botToken\": '',\n        \"openAIKey\": '',\n        \"elevenlabsKey\": '',\n        \"elevenlabsVoice\": '',\n        \"prompt\": '',\n        \"setGreetings\": '',\n    }\n}\n\nreturn msg;\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",

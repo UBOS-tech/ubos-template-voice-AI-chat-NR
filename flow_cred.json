@@ -1,1 +1,9 @@
-{}
+{
+    "f168eeb2f9b6dc07": {
+        "user": "${VOICEAICHAT-MONGO-USER-NAME}",
+        "password": "${VOICEAICHAT-MONGO-PASSWORD}"
+    },
+    "7352b6a79cebaa33": {
+        "token": "{global.get('botCredential').botToken}"
+    }
+}
